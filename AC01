@@ -12,7 +12,7 @@ public class App {
 
         //ex2
         int num1 = 150;
-        int num2 = 250;
+        int num2 = 200;
         mostraNum(num1, num2);
         System.out.println("----------------------------");
 
