@@ -4,25 +4,21 @@ public class AC02 {
     public static void main(String[] args) throws Exception {
         while (true) {
             Scanner leitor = new Scanner(System.in);
-            double num1, num2, num3, num4;
-            String operacao, condicao;
+            double num1, num2, num4, condicao;
+            String operacao;
             
             System.out.println("---------------------------------------");
-            System.out.print("(n) para uma operacao nova: ");
-            condicao = leitor.next();
-            System.out.print("Informe um numero: ");
-            num1 = leitor.nextInt();
-            System.out.print("Informe um numero: ");
-            num2 = leitor.nextInt();
-
-            switch (condicao) {
-                case "n":
-                    System.out.print("Informe um numero: ");
+            System.out.print("(1) para uma operacao nova: ");
+            condicao = leitor.nextInt();
+            num1 = 0;
+            
+            if (condicao == 1) {
+                System.out.print("Informe um numero: ");
                     num1 = leitor.nextInt();
                     System.out.print("Informe um numero: ");
                     num2 = leitor.nextInt();
                     
-                    while (condicao.equals ("n")) {
+                    while (condicao == 1) {
                         System.out.print("Digite o tipo de operacao(+, -, *, /): ");
                         operacao = leitor.next();
                         System.out.println("---------------------------------------");
@@ -30,36 +26,35 @@ public class AC02 {
                         switch (operacao) {
                             case "+":
                                 num1 = add(num1, num2);
-                                System.out.println(add(num1, num2));
+                                System.out.println(num1);
                                 break;
                                 
                             case "-":
                                 num1 = sub(num1, num2);
-                                System.out.println(sub(num1, num2));
+                                System.out.println(num1);
                                 break;
 
                             case "*":
                                 num1 = mult(num1, num2);
-                                System.out.println(mult(num1, num2));
+                                System.out.println(num1);
                                 break;
                                 
                             case "/":
                                 num1 = div(num1, num2);
-                                System.out.println(div(num1, num2));
+                                System.out.println(num1);
                                 break;
                             
                             default:
                                 break;
                         }
-                    System.out.println("(x) sair (n) para operacao nova (r) para operacao com o resultado: ");
-                    condicao = leitor.next();
+                    System.out.println("(0) sair (1) para operacao nova (2) para operacao com o resultado: ");
+                    condicao = leitor.nextInt();
                     }
-                    break;
                 
-                case "r":
-                    while (condicao.equals ("r")) {
+            } if (condicao == 2) {
+                while (condicao == 2) {
                         System.out.print("Informe um numero: ");
-                        num4 = leitor.nextInt();
+                        num2 = leitor.nextInt();
 
                         System.out.print("Digite o tipo de operacao(+, -, *, /): ");
                         operacao = leitor.next();
@@ -67,40 +62,35 @@ public class AC02 {
 
                         switch (operacao) {
                             case "+":
-                                num1 = add(num1, num4);
-                                System.out.println(add(num1, num4));
+                                num1 = add(num1, num2);
+                                System.out.println(num1);
                                 break;
                                 
                             case "-":
-                                num1 = sub(num1, num4);
-                                System.out.println(sub(num1, num4));
+                                num1 = sub(num1, num2);
+                                System.out.println(num1);
                                 break;
 
                             case "*":
-                                num1 = mult(num1, num4);
-                                System.out.println(mult(num1, num4));
+                                num1 = mult(num1, num2);
+                                System.out.println(num1);
                                 break;
                                 
                             case "/":
-                                num1 = div(num1, num4);
-                                System.out.println(div(num1, num4));
+                                num1 = div(num1, num2);
+                                System.out.println(num1);
                                 break;
                             
                             default:
                                 break;
                         }
-                    System.out.println("(x) sair (n) para operacao nova (r) para operacao com o resultado: ");
-                    condicao = leitor.next();
+                    System.out.println("(0) sair (1) para operacao nova (2) para operacao com o resultado: ");
+                    condicao = leitor.nextInt();
                     }
-                    break;
-
-                case "x":
-                    System.out.println("Programa finalizado");
-                    break;
-            
-                default:
-                    break;
+            } if (condicao == 0) {
+                System.out.println("Programa finalizado");
             }
+
             leitor.close();
         }
     }
